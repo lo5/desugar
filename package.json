@@ -4,9 +4,9 @@
   "description": "Build-time unqualified imports for Javascript.",
   "main": "desugar.js",
   "scripts": {
-    "start": "coffee -c desugar.coffee && uglifyjs desugar.js > desugar.min.js",
+    "start": "coffee -c *.coffee && uglifyjs desugar.js > desugar.min.js",
     "debug": "echo \"Run node-inspector & for debugging!\" && coffee -c *.coffee && node --debug-brk test.js",
-    "test": "coffee test.coffee | faucet"
+    "test": "npm start && node test.js | faucet"
   },
   "repository": {
     "type": "git",
