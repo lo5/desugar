@@ -195,7 +195,7 @@
         if (parent.type === 'VariableDeclarator' && key === 'id') {
           return;
         }
-        if (parent.type === 'Property') {
+        if (parent.type === 'Property' && key === 'key') {
           return;
         }
         if (key === 'property') {
