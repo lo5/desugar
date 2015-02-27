@@ -2,9 +2,11 @@
   "name": "desugar",
   "version": "0.0.1",
   "description": "Build-time unqualified imports for Javascript.",
-  "main": "index.js",
+  "main": "desugar.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "coffee -c desugar.coffee && uglifyjs desugar.js > desugar.min.js",
+    "debug": "echo \"Run node-inspector & for debugging!\" && coffee -c *.coffee && node --debug-brk test.js",
+    "test": "coffee test.coffee | faucet"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,16 @@
   "bugs": {
     "url": "https://github.com/lo5/desugar/issues"
   },
-  "homepage": "https://github.com/lo5/desugar"
+  "homepage": "https://github.com/lo5/desugar",
+  "devDependencies": {
+    "coffee-script": "^1.9.1",
+    "faucet": "0.0.1",
+    "tape": "^3.5.0",
+    "uglify-js": "^2.4.16"
+  },
+  "dependencies": {
+    "escodegen": "^1.6.1",
+    "esprima": "^2.0.0",
+    "lodash": "^3.3.1"
+  }
 }
