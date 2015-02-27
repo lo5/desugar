@@ -134,7 +134,7 @@ desugar = (symbols, javascript, opts={}) ->
 
     else if node.type is 'Identifier'
       return if parent.type is 'VariableDeclarator' and key is 'id' # ignore variable declarations
-      return if parent.type is 'Property' # ignore properties in object expressions
+      return if parent.type is 'Property' and key is 'key' # ignore property keys in object literals
       return if key is 'property' # ignore members
       return unless symbol = currentScope[node.name]
       return unless symbol.type is 'qualify'

@@ -1,6 +1,6 @@
 test = require 'tape'
 coffee = require 'coffee-script'
-desugar = require './desugar.coffee'
+desugar = require './desugar.js'
 
 testCases = '''
 require() is variadic
@@ -184,7 +184,15 @@ foo.canvas.foo = bar
 foo.canvas.foo = bar;
 ===
 
-Does not affect object properties
+Affects object literal values
+---
+x = target: canvas
+---
+var x;
+x = { target: context.domElement };
+===
+
+Does not affect object literal keys
 ---
 x = canvas: 'bar'
 ---
